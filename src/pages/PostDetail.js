@@ -12,10 +12,11 @@ const PostDetail = () => {
       const response = await axios.get(`http://localhost:5000/posts/${id}`);
       setPost(response.data);
     };
+
     fetchPost();
   }, [id]);
 
-  if (!post) return <div>Carregando...</div>;
+  if (!post) return <div>Loading...</div>;
 
   return (
     <div>

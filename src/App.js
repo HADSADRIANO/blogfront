@@ -10,6 +10,18 @@ import Login from './pages/Login';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 
+console.log({
+  Home,
+  PostDetail,
+  CreatePost,
+  EditPost,
+  Admin,
+  Login,
+  Header,
+  PrivateRoute
+});
+
+
 const App = () => {
   const [isAuthenticated, setAuth] = useState(false);
 
