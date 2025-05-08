@@ -1,39 +1,28 @@
-// components/Header.js
+// Header.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const HeaderContainer = styled.header`
-  background-color: #333;
-  padding: 1rem;
-  text-align: center;
-`;
-
 const Nav = styled.nav`
+  background-color: #282c34;
+  padding: 16px;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  gap: 16px;
 `;
 
-const NavLink = styled(Link)`
+const StyledLink = styled(Link)`
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
-  &:hover {
-    text-decoration: underline;
-  }
+  font-weight: bold;
 `;
 
 const Header = () => {
   return (
-    <HeaderContainer>
-      <h1 style={{ color: 'white' }}>Blog Application</h1>
-      <Nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/admin">Admin</NavLink>
-        <NavLink to="/login">Login</NavLink>
-      </Nav>
-    </HeaderContainer>
+    <Nav>
+      <StyledLink to="/">Home</StyledLink>
+      <StyledLink to="/admin">Admin</StyledLink>
+      <StyledLink to="/create">Criar Post</StyledLink>
+    </Nav>
   );
 };
 

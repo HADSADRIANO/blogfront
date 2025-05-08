@@ -21,11 +21,11 @@ const Description = styled.p`
   color: #888;
 `;
 
-const PostCard = ({ title, author, description }) => (
+const PostCard = ({ title, description, author }) => (
   <Card>
     <Title>{title}</Title>
-    <Author>Autor: {author}</Author>
     <Description>{description}</Description>
+    <Author>Autor: {author}</Author>
   </Card>
 );
 

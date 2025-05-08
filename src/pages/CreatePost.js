@@ -22,14 +22,6 @@ const Input = styled.input`
   border-radius: 4px;
 `;
 
-const Textarea = styled.textarea`
-  padding: 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  min-height: 150px;
-`;
-
 const Button = styled.button`
   padding: 0.8rem;
   font-size: 1rem;
@@ -46,13 +38,15 @@ const Button = styled.button`
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [description, setDescription] = useState('');
   const [author, setAuthor] = useState('');
+  const [image, setImage] = useState('');
+  const [calendario, setCalendario] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newPost = { title, content, author };
-    await axios.post('http://localhost:5000/posts', newPost);
+    const newPost = { title, description, image, calendario, author };
+    await axios.post('http://localhost:5000/api/posts/', newPost);
     alert('Post criado com sucesso!');
   };
 
@@ -64,16 +58,29 @@ const CreatePost = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <Textarea
-        placeholder="Conteúdo"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
+      <Input
+        type="text"
+        placeholder="description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
       />
       <Input
         type="text"
         placeholder="Autor"
         value={author}
         onChange={(e) => setAuthor(e.target.value)}
+      />
+       <Input
+        type="text"
+        placeholder="Imagem"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
+      />
+        <Input
+        type="date"
+        placeholder="Data de Cadastro"
+        value={calendario}
+        onChange={(e) => setCalendario(e.target.value)}
       />
       <Button type="submit">Criar Post</Button>
     </Form>
